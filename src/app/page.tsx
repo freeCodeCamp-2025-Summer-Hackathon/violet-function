@@ -1,6 +1,5 @@
 "use client";
 
-import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
@@ -16,9 +15,8 @@ const oswald = Oswald({
 export default function Home() {
   return (
     <>
-      <Navigation />
       <main className="min-h-screen bg-black text-white">
-        <Hero oswaldClass={oswald.className} />
+        <Hero />
         <Features />
         <HowItWorks />
         <CTA />

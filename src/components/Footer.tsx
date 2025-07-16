@@ -51,11 +51,11 @@ export default function Footer() {
           >
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
+                <span className="text-white font-bold text-lg font-primary">S</span>
               </div>
-              <span className="text-white font-bold text-xl">SceneSwap</span>
+              <span className="text-white font-bold text-xl font-primary">SceneSwap</span>
             </div>
-            <p className="text-white/60 mb-4 max-w-md">
+            <p className="text-white/60 mb-4 max-w-md font-secondary">
               The collaborative platform where groups discover, vote, and enjoy the best films and TV shows together.
             </p>
             <div className="flex space-x-4">
@@ -84,7 +84,7 @@ export default function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
             >
-              <h3 className="text-white font-semibold mb-4 capitalize">
+              <h3 className="text-white font-semibold mb-4 capitalize font-primary">
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -97,7 +97,7 @@ export default function Footer() {
                   >
                     <a
                       href={link.href}
-                      className="text-white/60 hover:text-white transition-colors duration-200 text-sm"
+                      className="text-white/60 hover:text-white transition-colors duration-200 text-sm font-secondary"
                     >
                       {link.name}
                     </a>
@@ -115,7 +115,7 @@ export default function Footer() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="flex items-center space-x-2 text-white/60 text-sm mb-4 md:mb-0">
+          <div className="flex items-center space-x-2 text-white/60 text-sm mb-4 md:mb-0 font-secondary">
             <span>Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
@@ -125,7 +125,7 @@ export default function Footer() {
             </motion.div>
             <span>by the violet-function</span>
           </div>
-          <div className="text-white/60 text-sm">
+          <div className="text-white/60 text-sm font-secondary">
             © 2024 SceneSwap. All rights reserved.
           </div>
         </motion.div>

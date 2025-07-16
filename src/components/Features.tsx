@@ -70,10 +70,10 @@ export default function Features() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-primary">
             Everything You Need
           </h2>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+          <p className="text-xl text-white/60 max-w-2xl mx-auto font-secondary">
             From creating groups to tracking your watchlist, SceneSwap has all the features you need for the perfect movie night.
           </p>
         </motion.div>
@@ -101,8 +101,8 @@ export default function Features() {
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl mb-6 relative z-10`}>
                 <feature.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{feature.title}</h3>
-              <p className="text-white/70 leading-relaxed relative z-10">{feature.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-4 relative z-10 font-primary">{feature.title}</h3>
+              <p className="text-white/70 leading-relaxed relative z-10 font-secondary">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -114,10 +114,10 @@ export default function Features() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h3 className="text-3xl font-bold text-white mb-4">
+          <h3 className="text-3xl font-bold text-white mb-4 font-primary">
             And So Much More
           </h3>
-          <p className="text-lg text-white/60">
+          <p className="text-lg text-white/60 font-secondary">
             Discover additional features that make SceneSwap the ultimate collaborative viewing platform
           </p>
         </motion.div>
@@ -135,8 +135,8 @@ export default function Features() {
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center mb-4`}>
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
-              <p className="text-white/60 text-sm">{feature.description}</p>
+              <h4 className="text-lg font-semibold text-white mb-2 font-primary">{feature.title}</h4>
+              <p className="text-white/60 text-sm font-secondary">{feature.description}</p>
             </motion.div>
           ))}
         </div>

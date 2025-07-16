@@ -57,17 +57,17 @@ export default function CTA() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.div
-              className="inline-flex items-center space-x-2 bg-white/10 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center space-x-2 bg-white/10 rounded-full px-4 py-2 mb-6 font-secondary"
               whileHover={{ scale: 1.05 }}
             >
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <span className="text-white/90 text-sm font-medium">Join 10,000+ happy users</span>
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-primary">
               Ready to Transform Your Movie Nights?
             </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto font-secondary">
               Join thousands of groups already using SceneSwap to discover and enjoy amazing content together.
             </p>
 
@@ -78,7 +78,7 @@ export default function CTA() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <motion.button 
-                className="bg-white text-black px-12 py-4 rounded-xl text-xl font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                className="bg-white text-black px-12 py-4 rounded-xl text-xl font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg font-secondary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -86,7 +86,7 @@ export default function CTA() {
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
               <motion.button 
-                className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-black transition-all duration-200 font-secondary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -115,8 +115,8 @@ export default function CTA() {
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-white/80 text-sm mb-3 italic">"{testimonial.text}"</p>
-                  <p className="text-white/60 text-xs">— {testimonial.author}</p>
+                  <p className="text-white/80 text-sm mb-3 italic font-secondary">"{testimonial.text}"</p>
+                  <p className="text-white/60 text-xs font-secondary">— {testimonial.author}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -130,11 +130,11 @@ export default function CTA() {
             >
               <div className="flex items-center space-x-2">
                 <Users className="w-4 h-4" />
-                <span className="text-sm">10K+ Groups</span>
+                <span className="text-sm font-secondary">10K+ Groups</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="w-4 h-4" />
-                <span className="text-sm">50K+ Ratings</span>
+                <span className="text-sm font-secondary">50K+ Ratings</span>
               </div>
             </motion.div>
           </motion.div>
