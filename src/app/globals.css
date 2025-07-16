@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,300;1,300&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Next.js font loader variables are used instead */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Geist font variables removed */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +23,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-source-sans-3), Arial, Helvetica, sans-serif;
 }
 
 /* Custom scrollbar */
@@ -75,4 +76,23 @@ html {
 
 .animate-pulse-slow {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Font utility classes */
+.font-primary {
+  font-family: var(--font-playfair-display), serif !important;
+}
+.font-secondary {
+  font-family: var(--font-source-sans-3), Arial, Helvetica, sans-serif !important;
+}
+
+.page-transition-wrapper {
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-wrapper[aria-hidden="true"] {
+  opacity: 0;
+  transform: translateY(20px);
 }

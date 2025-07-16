@@ -64,10 +64,10 @@ export default function HowItWorks() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-primary">
             How It Works
           </h2>
-          <p className="text-xl text-white/60">
+          <p className="text-xl text-white/60 font-secondary">
             Three simple steps to start your collaborative viewing experience
           </p>
         </motion.div>
@@ -112,8 +112,8 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold text-white mb-4 text-center">{step.title}</h3>
-              <p className="text-white/70 text-center mb-6">{step.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center font-primary">{step.title}</h3>
+              <p className="text-white/70 text-center mb-6 font-secondary">{step.description}</p>
 
               {/* Step Details */}
               <div className="space-y-3">
@@ -129,7 +129,7 @@ export default function HowItWorks() {
                     transition={{ delay: detailIndex * 0.1 }}
                   >
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${step.color}`} />
-                    <span className="text-white/80 text-sm">{detail}</span>
+                    <span className="text-white/80 text-sm font-secondary">{detail}</span>
                   </motion.div>
                 ))}
               </div>

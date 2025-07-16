@@ -32,10 +32,13 @@ export default function Hero({ oswaldClass = "" }: { oswaldClass?: string }) {
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-10 flex items-center justify-center w-full py-24">
-        <h1 className={`text-white text-6xl md:text-8xl font-bold text-center drop-shadow-lg ${oswaldClass}`}>
+      <div className="relative z-10 flex flex-col items-center justify-center w-full py-24">
+        <h1 className="text-white text-6xl md:text-8xl font-bold text-center drop-shadow-lg font-primary">
           SceneSwap
         </h1>
+        <p className="mt-4 text-white text-xl md:text-2xl text-center font-primary">
+          Binge battles? <span className="font-secondary font-normal">Settle here.</span>
+        </p>
       </div>
     </section>
   );
