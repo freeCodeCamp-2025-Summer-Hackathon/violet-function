@@ -21,9 +21,11 @@
 }
 
 body {
-  background: var(--background);
+  background: #0a0a0a;
   color: var(--foreground);
   font-family: var(--font-source-sans-3), Arial, Helvetica, sans-serif;
+  /* padding-top: 100px; */
+  transition: background 0.3s;
 }
 
 /* Custom scrollbar */
