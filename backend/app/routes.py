@@ -7,6 +7,13 @@ from flask import current_app as app
 from flask_socketio import SocketIO
 import secrets
 
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+TMDB_API_KEY = os.getenv("TMDB_API_KEY")
+
 main = Blueprint('main', __name__)
 # REMOVE: socketio = SocketIO(app, cors_allowed_origins="*")
 # Instead, import socketio from run.py if needed, or use current_app
@@ -185,3 +192,35 @@ def leave_group(group_id):
     db.session.delete(membership)
     db.session.commit()
     return jsonify({'message': 'Left group'})
+
+
+####### MOVIE route
+
+@main.route('/movies/trending', methods=['GET'])
+def fetch_trending_movies():
+    if not TMDB_API_KEY:
+        return jsonify({'error': 'TMDB api key not set'}), 500
+
+    url = "https://api.themoviedb.org/3/trending/movie/day"
+    params = {
+        "api_key": TMDB_API_KEY,
+        "language": "en-US"
+    }
+
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+
+        movies = [{
+            "title": m.get("title"),
+            "overview": m.get("overview"),
+            "poster": f"https://image.tmdb.org/t/p/w500{m['poster_path']}" if m.get("poster_path") else None
+        } for m in data.get("results", [])]
+
+        return jsonify({"movies": movies})
+
+    except requests.RequestException as e:
+        return jsonify({'error': 'failed to fetch movies', 'details': str(e)}), 500
+
+###############
