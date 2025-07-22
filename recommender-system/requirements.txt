@@ -3,3 +3,8 @@ pandas
 matplotlib
 scikit-learn
 nltk
+streamlit
+python-dotenv
+
+#local packages
+-e .
