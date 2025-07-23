@@ -39,3 +39,13 @@ class Message(db.Model):
     timestamp = db.Column(db.DateTime, server_default=db.func.now())
     group = db.relationship('Group', backref='messages')
     user = db.relationship('User', backref='messages')
+
+class Watchlist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)  # nullable for group watchlist
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=True)  # nullable for personal watchlist
+    movie_id = db.Column(db.String(100), nullable=False)
+    type = db.Column(db.String(20), nullable=False)  # 'personal' or 'group'
+
+    user = db.relationship('User', backref='watchlist', foreign_keys=[user_id])
+    group = db.relationship('Group', backref='watchlist', foreign_keys=[group_id])
