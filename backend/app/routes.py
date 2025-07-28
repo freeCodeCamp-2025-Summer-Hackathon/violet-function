@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from .models import User, Group, GroupMembership, GroupInvitation, Message
+from .models import User, Group, GroupMembership, GroupInvitation, Message, Watchlist
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_socketio import emit, join_room
@@ -223,4 +223,29 @@ def fetch_trending_movies():
     except requests.RequestException as e:
         return jsonify({'error': 'failed to fetch movies', 'details': str(e)}), 500
 
-###############
+############### Watchlist route
+
+@main.route('/api/watchlist', methods=['POST'])
+def add_to_watchlist():
+    data = request.json
+    movie_id = data.get('movie_id')
+    list_type = data.get('type')  # 'personal' or 'group'
+
+    if list_type == 'personal':
+        user_id = data.get('user_id')
+        if not user_id:
+            return jsonify({'error': 'Missing user_id'}), 400
+        entry = Watchlist(user_id=user_id, movie_id=movie_id, type='personal')
+
+    elif list_type == 'group':
+        group_id = data.get('group_id')
+        if not group_id:
+            return jsonify({'error': 'Missing group_id'}), 400
+        entry = Watchlist(group_id=group_id, movie_id=movie_id, type='group')
+
+    else:
+        return jsonify({'error': 'Invalid type'}), 400
+
+    db.session.add(entry)
+    db.session.commit()
+    return jsonify({'message': 'Added to watchlist'}), 201
